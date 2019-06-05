@@ -1,6 +1,6 @@
 module Luhn
   def self.is_valid?(card_number)
-    card_number = split(card_number)
+    card_number = split_method(card_number)
     card_number = reverse_method(card_number)
     card_number = double_digits(card_number)
     card_number = remove_nine(card_number)
@@ -8,7 +8,7 @@ module Luhn
     card_number % 10 == 0
   end
 
-  def self.split(card_number)
+  def self.split_method(card_number)
     card_number = card_number.to_s
     card_number = card_number.split('').collect{|i| i.to_i}
   end
